@@ -3,6 +3,7 @@ public class Cuenta {
     protected int numeroConsignaciones = 0;
     protected int numeroRetiros = 0;
     protected float tasaAnual;
+    protected float comisionMensual;
 
 
 
@@ -32,5 +33,30 @@ public class Cuenta {
     }
 
 
-    //public void calcularInteres()
-}
+    public void calcularInteres(){
+        float tasaMensual = tasaAnual /12;
+        float interesMensual = saldo * tasaMensual;
+        saldo += interesMensual;
+        
+    }
+
+    public void extractoMensual(){
+    
+    saldo -= comisionMensual;
+    calcularInteres();
+    }
+
+
+    public void imprimir(){
+
+        System.out.println("saldo:" + saldo);
+        System.out.println("Numero de consignaciones: " + numeroConsignaciones);
+        System.out.println("Numero de retiros: " + numeroRetiros);
+        System.out.println("Tasa Anual: "+ tasaAnual );
+    }
+
+
+    }
+
+
+    
